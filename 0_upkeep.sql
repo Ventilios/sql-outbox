@@ -21,4 +21,6 @@ GROUP BY database_id ORDER BY total_ghost_records DESC;
 -- IO stats delta - https://www.sqlskills.com/blogs/paul/capturing-io-latencies-period-time/
 -- Wait stats delta - https://www.sqlskills.com/blogs/paul/capturing-wait-statistics-period-time/
 -- Quick checks with Management Studio built-in Performance Dashboard - https://docs.microsoft.com/en-us/sql/relational-databases/performance/performance-dashboard
--- DBCC PAGE and sp_whosisactive - http://whoisactive.com/
+-- sp_whosisactive - http://whoisactive.com/
+-- DBCC PAGE - For example: https://www.mssqltips.com/sqlservertip/1578/using-dbcc-page-to-examine-sql-server-table-and-index-data/
+
