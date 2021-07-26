@@ -2,12 +2,12 @@
 This repository has some sample scripts of leveraging an Outbox pattern with SQL Server.
 Can be used to find the right balance between concurrent read and write operations on the message box table. 
 
-1. 1_clustered.sql - Table with a primary key and clustered index on the pk. 
-2. 2_clustered_optimized.sql - Table with a primary key and clustered index on the pk with SQL Server 2019 feature optimize_for_sequential_key. 
-3. 3_partitioned.sql - Table with a primary key on the identity and clustered index on id, hash. Depending on the amount of records that will be deallocated when reading from the queue, evaluate if a non-clustered index is needed on the primary key (optimize for seeking and limit the amount of logical reads). 
-4. 4_partitioned_optimized.sql - Table with a primary on the identity, clustered index on id, hash and Optimize for optimize_for_sequential_key.
-5. 5_LMax_disruptor.sql - Inspired by Chris Adkin: https://chrisadkin.io/2016/01/02/super-scaling-queues-using-the-lmax-disruptor-pattern/
-6. 5_LMax_disruptor_inmemory.sql - Inspired by Chris Adkin: https://chrisadkin.io/2016/01/18/super-scaling-queues-using-the-lmax-disruptor-pattern-and-the-in-memory-oltp-engine/
+1. 1_clustered - Table with a primary key and clustered index on the pk. 
+2. 2_clustered_optimized - Table with a primary key and clustered index on the pk with SQL Server 2019 feature optimize_for_sequential_key. 
+3. 3_partitioned - Table with a primary key on the identity and clustered index on id, hash. Depending on the amount of records that will be deallocated when reading from the queue, evaluate if a non-clustered index is needed on the primary key (optimize for seeking and limit the amount of logical reads). 
+4. 4_partitioned_optimized - Table with a primary on the identity, clustered index on id, hash and Optimize for optimize_for_sequential_key.
+5. 5_LMax_disruptor - Inspired by Chris Adkin: https://chrisadkin.io/2016/01/02/super-scaling-queues-using-the-lmax-disruptor-pattern/
+6. 5_LMax_disruptor_inmemory - Inspired by Chris Adkin: https://chrisadkin.io/2016/01/18/super-scaling-queues-using-the-lmax-disruptor-pattern-and-the-in-memory-oltp-engine/
 
 When evaluating a message box or queue pattern, the following articles and points can be used for inspiration: 
 * An article describing the fundamentals of 'tables as queues' by Remus Rusanu. - https://rusanu.com/2010/03/26/using-tables-as-queues/
