@@ -1,5 +1,6 @@
 -- Make a transaction log backup frequently
-BACKUP LOG [Outbox] TO  DISK = N'F:\bak\outbox.trn' WITH NOFORMAT, NOINIT,  NAME = N'Outbox1-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10;
+BACKUP DATABASE [outbox] TO  DISK = N'F:\bak\outbox_full.bak' WITH NOFORMAT, NOINIT,  NAME = N'outbox-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+BACKUP LOG [Outbox] TO  DISK = N'F:\bak\outbox.trn' WITH NOFORMAT, NOINIT,  NAME = N'Outbox1-TRN Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10;
 
 -- Clear wait statistics
 DBCC SQLPERF('sys.dm_os_wait_stats', CLEAR);
