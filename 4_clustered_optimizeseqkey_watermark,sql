@@ -1,5 +1,5 @@
 /*
--- Create outbox table
+-- Create outbox database
 */
 CREATE DATABASE [outbox]
 	CONTAINMENT = NONE
@@ -30,7 +30,7 @@ USE [outbox]
 GO 
 
 /*
--- Stored procedure to write towards the outbox table
+-- Create outbox table
 */
 CREATE TABLE [dbo].[outbox] (
 	[id] [bigint] IDENTITY(1,1) NOT NULL,
@@ -61,9 +61,9 @@ GO
 /*
 -- Create watermark tracking table
 -- Idea from: https://forrestmcdaniel.com/2021/06/30/fixing-queues-with-watermarks
--- When reading with multiple threads and pullingh larger batch sizes, out of sync watermark table can occur. 
+-- When reading with multiple threads and pulling larger batch sizes, out of sync watermark table can occur. 
 */
-CREATE TABLE dbo.outboxtrack --watermark table
+CREATE TABLE dbo.outboxtrack
 (
     id INT PRIMARY KEY
 );
@@ -88,7 +88,7 @@ GO
 
 
 /*
--- Stored procedure to read and delete towards the outbox table
+-- Stored procedure to read and delete from the outbox table
 */
 CREATE OR ALTER PROCEDURE [dbo].[pull]
 	@batchsize int
